@@ -9,6 +9,7 @@
 //   任意の二つの日時の間でカメラロールに生成された写真を取得するアプリ
 // http://dev.classmethod.jp/references/ios8-photo-kit-1/参考サイト
 
+
 import UIKit
 import Photos
 
@@ -66,6 +67,9 @@ class ViewController: UIViewController {
         
         let assets = PHAsset.fetchAssets(in: momentLists[0] as! PHAssetCollection, options: option)
         assets.enumerateObjects({ (asset, index, stop) in
+            
+            //TODO:ここでasset.locationすれば位置情報も取得できる。
+            print(asset.location)
             
             if asset.mediaType == .image {
                 let assetDate = asset.creationDate
